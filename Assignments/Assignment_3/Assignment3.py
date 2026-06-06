@@ -1,100 +1,130 @@
-# Assignment 3
-# 1. 
-def firsten():
-   sum = 0
-   for i in range (1,11):
-       sum+=i
-   print('Sum of first 10 numbers:',sum)   
-firsten()
+# 1. Function to print first 10 natural numbers
 
-#2.
-def firstn(n):
-   sum = 0
-   for i in range (1,n):
-      sum+=i
-   print('Sum of first',n,'natural numbers is:',sum)
-firstn(20)
-
-#3.
-def reverse(a):
-   reversenum=str(num)[::-1]
-   print('number after reversing is :',reversenum)
-num=int(input('Enter a number :'))
-reverse(num)
-
-#4. 
-def countd(num1):
-   print('Number of digit:',len(str(abs(num1))))
-digit=int(input('Enter a digit:'))
-countd(digit)
-
-#5.
-def palindrome(num):
-   if str(num)==str(num)[::-1]:
-      print('It is Palindromic number')
-   else:
-      print('Not a Palindromic number')
-n=int(input('Enter a number:'))
-palindrome(n)
-      
-#6.
-def fibonacci():
-   a = 0
-   b = 1
-   c = int(input('Enter till how many terms you want to print the fibonacci Series:'))
-   for i in range(c):
-    print(a,end=" ")
-    a,b= b,a+b
-fibonacci()
-
-#7.
-print('Calculator')
-def add(a,b):
-   return a+b
-def sub(a,b):
-   return a-b
-def mult(a,b):
-   return a*b
-def div(a,b):
-   return a/b
-def mod(a,b):
-   return a%b
-p=float(input('Enter a number1 :'))
-q=float(input('Enter a number2:'))
-c=int(input('Enter choice from (1/5):'))
+def print_natural_numbers():
+    print("First 10 Natural Numbers:")
+    
+    for i in range(1, 11):
+        print(i, end=" ")
+    
+    print()
 
 
-if c==1:
- print('add',add(p,q))
-elif c==2:
-   print('sub',sub(p,q))
-elif c==3:
-   print('multiplication',mult(p,q))
-elif c==4:
-  print('division',div(p,q))
-elif c==5:
-   print('Modulo',mod(p,q))
-else:
-   print('Enter valid choice')
+# 2. Function to calculate sum of first N natural numbers
 
-#8.
-with open("student.txt","w") as file:
-   file.write("Alice:90\nBob:85")
-#9.
-with open("student.txt","r") as file:
-   content = file.read()
-print(content)
-#10. 
-try:
-   num = 10/0
-except ZeroDivisionError:
-   print("Error you can not divide ny zero.")
-#11.
-class Student:
-   def __init__(self,name,marks):
-      self.name = name
-      self.marks = marks
-      
-s1= Student("Ani",95)
-print('Student:',s1.name,'Marks:',s1.marks)
- 
+def sum_natural_numbers(n):
+    total = 0
+
+    for i in range(1, n + 1):
+        total += i
+
+    return total
+
+
+# 3. Function to reverse a number
+
+def reverse_number(num):
+    reverse = 0
+
+    while num > 0:
+        digit = num % 10
+        reverse = reverse * 10 + digit
+        num = num // 10
+
+    return reverse
+
+
+# 4. Function to count digits in a number
+
+def count_digits(num):
+    count = 0
+
+    while num > 0:
+        num = num // 10
+        count += 1
+
+    return count
+
+
+# 5. Function to check palindrome number
+
+def palindrome_number(num):
+    original = num
+    reverse = 0
+
+    while num > 0:
+        digit = num % 10
+        reverse = reverse * 10 + digit
+        num = num // 10
+
+    if original == reverse:
+        return True
+    else:
+        return False
+
+
+# 6. Function to generate Fibonacci series
+
+def fibonacci_series(n):
+    a = 0
+    b = 1
+
+    print("Fibonacci Series:")
+
+    for i in range(n):
+        print(a, end=" ")
+
+        c = a + b
+        a = b
+        b = c
+
+    print()
+
+
+# 7. Calculator Using Functions
+
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+
+def divide(a, b):
+    if b == 0:
+        return "Division by zero is not allowed"
+    return a / b
+
+
+def calculator():
+    print("\nCalculator")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+
+    choice = int(input("Enter your choice (1-4): "))
+
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+
+    if choice == 1:
+        print("Result =", add(num1, num2))
+
+    elif choice == 2:
+        print("Result =", subtract(num1, num2))
+
+    elif choice == 3:
+        print("Result =", multiply(num1, num2))
+
+    elif choice == 4:
+        print("Result =", divide(num1, num2))
+
+    else:
+        print("Invalid Choice")
+
+
